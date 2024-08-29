@@ -23,8 +23,7 @@ const botName = "ChatCord Bot";
 const server = http.createServer(app);
 const io = socketio(server,{
   cors: {
-    origin: "*", // Allow all origins (change this to your specific domain in production)
-    methods: ["GET", "POST"],
+    origin: ["https://let-s-chat-git-main-himanshuwadhwa1s-projects.vercel.app/","https://let-s-chat-xi.vercel.app/"],
     allowedHeaders: ["my-custom-header"],
     credentials: true
   }
