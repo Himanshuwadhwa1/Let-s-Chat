@@ -13,15 +13,22 @@ const {
 } = require("./utils/users");
 
 const app = express();
-const server = http.createServer(app);
-const io = socketio(server);
+
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 const botName = "ChatCord Bot";
-
+const server = http.createServer(app);
+const io = socketio(server,{
+  cors: {
+    origin: "*", // Allow all origins (change this to your specific domain in production)
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true
+  }
+});
 
 // Run when client connects
 io.on("connection", (socket) => {
