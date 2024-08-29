@@ -3,6 +3,7 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const formatMessage = require("./utils/messages");
+const cors = require('cors');
 require("dotenv").config();
 const {
   userJoin,
@@ -17,6 +18,7 @@ const io = socketio(server);
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors());
 
 const botName = "ChatCord Bot";
 
